@@ -1,0 +1,45 @@
+<html>
+<head>
+</head>
+<body>
+<h1 align="center">Chatbot</h1>
+      <p id="chatLog">- - C H A T - -<br></p>
+        <input id="userBox" type="text" onkeydown="if (event.keyCode == 13) {talk()}">
+      <button onClick='clearChat()'>Clear Chat</button>
+      <script type="text/javascript">
+        know = {
+                "hello" : "hi",
+                "hi" : "hello",
+                "hello :3" : "naw hellooo :3",
+                "hallo" : "hallo",
+                "ur mom gey" : "no u",
+                "how are you?" : "good",
+                "ok" : ":)",
+                "ur mom gay" : "no u",
+                "whats your name" : "my name is adam",
+                "who are you" : "im a chatbot",
+                "are u real" : "yes lol",
+                "fuck u" : "fuck u u stupid son of a bitch i hope you get diharrea your entire life xd little kid get gud",
+            };
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            async function talk() {
+                var user = document.getElementById("userBox").value;
+                document.getElementById("userBox").value = "";
+                document.getElementById("chatLog").innerHTML += "User: "+user+"<br>";
+                if (user in know) {
+                    await sleep(500)
+                    document.getElementById("chatLog").innerHTML += "Bot: "+know[user]+"<br>";
+                } else {
+                    await sleep(370)
+                    document.getElementById("chatLog").innerHTML += "Bot: I don't understand...<br>";
+                }
+            } 
+function clearChat() {
+    document.getElementById("chatLog").value = "";
+    document.getElementById("chatLog").value = "- - C H A T - -<br>";
+}
+      </script>
+</body>
+</html>
